@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /student_management/
+
+# If the requested file or directory does not exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Send everything to index.php
+RewriteRule ^(.*)$ index.php?route=$1 [L,QSA]
