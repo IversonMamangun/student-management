@@ -2,6 +2,11 @@
 require_once '../../Views/Partials/header.php';
 
 ?>
+<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+    <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" class="mx-auto h-10 w-auto" />
+    <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Register Form</h2>
+  </div>
 <div class="mt-12 sm:mx-auto sm:w-full sm:max-w-2xl">
   <form action="/student_management/Controllers/Auth/register.php" method="POST" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
 
@@ -29,25 +34,15 @@ require_once '../../Views/Partials/header.php';
 
     <!-- First Name -->
     <div>
-      <label for="firstname" class="block text-l font-medium text-gray-100">First Name</label>
+      <label for="fullname" class="block text-l font-medium text-gray-100">Full Name</label>
       <div class="mt-2">
-          <input id="firstname" type="text" name="firstname" required maxlength="20"
+          <input id="fullname" type="text" name="fullname" required maxlength="20"
           class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white 
           outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 
           focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-l" />
       </div>
     </div>
 
-    <!-- Last Name -->
-    <div>
-      <label for="lastname" class="block text-l font-medium text-gray-100">Last Name</label>
-      <div class="mt-2">
-        <input id="lastname" type="text" name="lastname" required maxlength="20"
-          class="block w-full rounded-md bg-white/5 px-3 py-1.5 text-base text-white 
-          outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 
-          focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-l" />
-      </div>
-    </div>
 
     <!-- Gender -->
     <div>
@@ -77,7 +72,7 @@ require_once '../../Views/Partials/header.php';
     </div>
 
     <!-- Course -->
-    <div>
+    <!-- <div>
       <label for="course" class="block text-l font-medium text-gray-100" maxlength="68">Course</label>
       <div class="mt-2">
         <input id="course" type="text" name="course" required
@@ -85,21 +80,20 @@ require_once '../../Views/Partials/header.php';
           outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 
           focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-l" />
       </div>
-    </div>
+    </div> -->
 
     <!-- Year Level -->
     <div>
-      <label for="year_level" class="block text-l font-medium text-gray-100">Year Level</label>
+      <label for="role" class="block text-l font-medium text-gray-100">Roles</label>
       <div class="mt-2">
-        <select id="year_level" name="year_level" required 
+        <select id="role" name="role" required 
           class="block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-white 
           outline-1 outline-gray-600 placeholder:text-gray-500 
           focus:outline-2 focus:outline-indigo-400 sm:text-l">
-          <option value="" disabled selected>Select Year Level</option>
-          <option value="1">Year 1</option>
-          <option value="2">Year 2</option>
-          <option value="3">Year 3</option>
-          <option value="4">Year 4</option>
+          <option value="" disabled selected>Select Role</option>
+          <option value="staff">Staff</option>
+          <option value="admin">Admin</option>
+          <option value="teachers">Teachers</option>
         </select>
       </div>
     </div>

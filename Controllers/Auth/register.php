@@ -9,40 +9,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Handle form submission
     $email      = trim($_POST['email'] ?? '');
     $password   = $_POST['password'] ?? '';
-    $firstname  = trim($_POST['firstname'] ?? '');
-    $lastname   = trim($_POST['lastname'] ?? '');
+    $fullname   = trim($_POST['fullname'] ?? '');
     $gender     = $_POST['gender'] ?? '';
     $birth_date = $_POST['birth_date'] ?? '';
-    $course     = $_POST['course'] ?? '';
-    $year_level = $_POST['year_level'] ?? '';
+    $role = $_POST['role'] ?? '';
 
-    if ($firstname === '' || $lastname === '' || $email === '' || $password === '') {
+    if ($fullname === '' || $email === '' || $password === '') {
         http_response_code(400);
-        exit('Firstname, lastname, email, and password are required.');
+        exit('fullname, email, and password are required.');
     }
 
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
     try {
         $stmt = $db->connection->prepare(
-            "INSERT INTO students 
-             (email, password, firstname, lastname, gender, birth_date, course, year_level) 
+            "INSERT INTO users 
+             (email, password, fullname, gender, birth_date, role) 
              VALUES 
-             (:email, :password, :firstname, :lastname, :gender, :birth_date, :course, :year_level)"
+             (:email, :password, :fullname, :gender, :birth_date, :role)"
         );
 
         $stmt->execute([
             ':email'      => $email,
             ':password'   => $hashedPassword,
-            ':firstname'  => $firstname,
-            ':lastname'   => $lastname,
+            ':fullname'   => $fullname,
             ':gender'     => $gender,
             ':birth_date' => $birth_date,
-            ':course'     => $course,
-            ':year_level' => $year_level,
+            ':role' => $role,
         ]);
         echo "<script>
-            alert('Submitted');
+            alert('Success');
             window.location.href='/student_management/Views/Auth/login_view.php';
         </script>";
         exit;

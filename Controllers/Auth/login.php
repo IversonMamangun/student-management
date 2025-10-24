@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             echo "<script>
                 alert('Login successful');
-                window.location.href='/student_management/Views/dashboard.view.php';
+                window.location.href='/student_management/controllers/dashboardcontroller.php';
             </script>";
             exit;
         } else {
